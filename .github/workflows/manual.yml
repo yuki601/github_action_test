@@ -1,0 +1,16 @@
+name: Manual
+
+on:
+  workflow_dispatch:
+    inputs:
+      greeting:
+        type: string
+        default: Hello
+        required: true
+        description: A Cheerful word  # ← 誤字修正: Chherful → Cheerful
+
+jobs:
+  run:
+    runs-on: ubuntu-latest  # ← タイポ修正: ubunt → ubuntu
+    steps:
+      - run: echo "${{ github.event.inputs.greeting }}"  # 入力の参照方法を修正
